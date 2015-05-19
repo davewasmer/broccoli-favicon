@@ -1,0 +1,19 @@
+{
+  "name": "broccoli-favicon",
+  "version": "0.0.1",
+  "description": "Generate favicons and HTML using favicons module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davewasmer/broccoli-favicon"
+  },
+  "author": "Dave Wasmer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davewasmer/broccoli-favicon/issues"
+  },
+  "homepage": "https://github.com/davewasmer/broccoli-favicon"
+}
