@@ -4,7 +4,7 @@
   "description": "Generate favicons and HTML using favicons module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,17 @@
   "bugs": {
     "url": "https://github.com/davewasmer/broccoli-favicon/issues"
   },
-  "homepage": "https://github.com/davewasmer/broccoli-favicon"
+  "homepage": "https://github.com/davewasmer/broccoli-favicon",
+  "dependencies": {
+    "broccoli-caching-writer": "^0.5.5",
+    "chalk": "^1.0.0",
+    "favicons": "^3.1.1",
+    "lodash-node": "^3.9.0",
+    "mocha": "^2.2.5",
+    "quick-temp": "^0.1.2",
+    "rsvp": "^3.0.18"
+  },
+  "devDependencies": {
+    "broccoli": "^0.16.3"
+  }
 }
