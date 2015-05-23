@@ -27,4 +27,19 @@ describe('broccoli-favicons', function() {
       assert(fs.statSync(path.join(destDir, 'favicon.ico')).isFile());
     });
   });
+
+  it('uses the cached favicons if persistentCacheFile option is passed in', function() {
+    this.timeout(40000);
+    var sourcePath = path.join('test', 'fixtures', 'persistent-cache');
+    var cacheDir = path.join('test', 'fixtures', 'persistent-cache', 'favicon-cache');
+    var tree = favicons(sourcePath, { persistentCacheDir: cacheDir });
+
+    builder = new broccoli.Builder(tree);
+    return builder.build().then(function(results) {
+      var destDir = results.directory;
+      assert(!fs.existsSync(path.join(destDir, 'favicon-16x16.png')));
+      assert(!fs.existsSync(path.join(destDir, 'favicon.ico')));
+    });
+  });
+
 });
