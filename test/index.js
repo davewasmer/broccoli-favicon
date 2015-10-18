@@ -16,7 +16,7 @@ describe('broccoli-favicons', function() {
   });
 
   it('creates favicons', function() {
-    this.timeout(40000);
+    this.timeout(60000);
     var sourcePath = path.join('test', 'fixtures', 'simple');
     var tree = favicons(sourcePath);
 
@@ -29,7 +29,6 @@ describe('broccoli-favicons', function() {
   });
 
   it('uses the cached favicons if persistentCacheFile option is passed in', function() {
-    this.timeout(40000);
     var sourcePath = path.join('test', 'fixtures', 'persistent-cache');
     var cacheDir = path.join('test', 'fixtures', 'persistent-cache', 'favicon-cache');
     var tree = favicons(sourcePath, { persistentCacheDir: cacheDir });
