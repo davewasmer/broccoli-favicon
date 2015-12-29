@@ -89,6 +89,7 @@ function Favicons (inputTree, options) {
   if (this.options.persistentCacheDir) {
     this.cachedTreeDir = path.join(this.options.persistentCacheDir, 'cached-tree');
     this.cacheFile = path.join(this.options.persistentCacheDir, '.favicon-cache-key');
+    this.cacheFileMeta = path.join(this.options.persistentCacheDir, '.favicon-meta.json');
   }
 
   options.include = values(this.config.files.src) || [ 'favicon.png' ];
@@ -121,6 +122,14 @@ Favicons.prototype.updateCache = function (srcDirs, destDir) {
           return self.updatePersistentCache(cacheKey, config);
         }
       }).then(function() {
+
+        if (fs.existsSync(self.cacheFileMeta)) {
+          var meta = JSON.parse(fs.readFileSync(self.cacheFileMeta));
+          if (self.options.callback) {
+            self.options.callback(meta);
+          }
+        }
+
         rimraf.sync(destDir);
         return symlinkOrCopy.sync(self.cachedTreeDir, destDir);
       });
@@ -147,7 +156,8 @@ Favicons.prototype.updatePersistentCache = function(cacheKey, config) {
   .then(function() {
     mkdirp.sync(self.cachedTreeDir);
     return self.buildFavicons(config, self.cachedTreeDir);
-  }).then(function() {
+  }).then(function(meta) {
+    fs.writeFileSync(self.cacheFileMeta, JSON.stringify(meta));
     fs.writeFileSync(self.cacheFile, cacheKey);
   });
 };
@@ -194,7 +204,7 @@ Favicons.prototype.buildFavicons = function(config, destDir) {
       if (self.options.callback) {
         self.options.callback(meta);
       }
-      resolve();
+      resolve(meta);
     });
   });
 };
