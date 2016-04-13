@@ -22,7 +22,6 @@ describe('broccoli-favicons', function() {
 
     builder = new broccoli.Builder(tree);
     return builder.build().then(function(results) {
-      console.log(builder.outputPath);
       var destDir = builder.outputPath;
       assert(fs.statSync(path.join(destDir, 'favicon-16x16.png')).isFile());
     });
