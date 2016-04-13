@@ -38,6 +38,7 @@ function Favicons(inputPaths, options) {
   if (!Array.isArray(inputPaths)) {
     inputPaths = [ inputPaths ];
   }
+  this.config = options.faviconsConfig || {};
   this.inputPaths = inputPaths;
   this.imagePath = options.imagePath || 'favicon.png';
   this.htmlCallback = options.htmlCallback || function() {};
