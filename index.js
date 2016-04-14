@@ -55,7 +55,7 @@ Favicons.prototype.build = function build() {
   return new Promise(function(resolve, reject) {
     var config = merge(defaultConfig, self.config);
     var filepath = path.join(self.inputPaths[0], self.imagePath);
-    favicons(filepath, config, (error, response) => {
+    favicons(filepath, config, function(error, response) {
       if (error) {
         reject(new Error(error.name + ': ' + error.message));
       }
