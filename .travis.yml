@@ -11,7 +11,7 @@ cache:
 
 before_install:
   - "npm config set spin false"
-  - "npm install -g npm@^3"
+  - "npm install multidep -g"
 
 install:
   - npm install
