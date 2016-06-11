@@ -43,7 +43,8 @@ function Favicons(inputPaths, options) {
   this.imagePath = options.imagePath || 'favicon.png';
   this.htmlCallback = options.htmlCallback || function() {};
   Plugin.call(this, inputPaths, {
-    annotation: options.annotation
+    annotation: "Broccoli-Favicon",
+    cacheInclude: [/\.(png|jpg|jpeg|ico)/i]
   });
 }
 Favicons.prototype = Object.create(Plugin.prototype);
@@ -69,4 +70,3 @@ Favicons.prototype.build = function build() {
 }
 
 module.exports = Favicons;
-
