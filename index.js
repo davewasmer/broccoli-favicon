@@ -43,6 +43,7 @@ function Favicons(inputPaths, options) {
   this.imagePath = options.imagePath || 'favicon.png';
   this.htmlCallback = options.htmlCallback || function() {};
   Plugin.call(this, inputPaths, {
+    inputFiles: [this.imagePath], // the only input we care about, all output is derived from this input
     annotation: options.annotation
   });
 }
