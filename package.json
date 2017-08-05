@@ -20,7 +20,7 @@
     "bluebird": "^3.3.5",
     "broccoli-caching-writer": "^2.2.1",
     "favicons": "^4.7.1",
-    "lodash": "^4.10.0"
+    "lodash": "^4.16.1"
   },
   "devDependencies": {
     "mocha": "^2.2.5",
