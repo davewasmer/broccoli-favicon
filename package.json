@@ -19,7 +19,7 @@
   "dependencies": {
     "bluebird": "^3.3.5",
     "broccoli-caching-writer": "^2.2.1",
-    "favicons": "^4.7.1",
+    "favicons": "^4.7.3",
     "lodash": "^4.10.0"
   },
   "devDependencies": {
