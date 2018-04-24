@@ -61,7 +61,7 @@ Favicons.prototype.build = function build() {
         reject(new Error(error.name + ': ' + error.message));
       }
       self.htmlCallback(response.html);
-      response.images.forEach(function writeImageFile(image) {
+      response.images.concat(response.files).forEach(function writeImageFile(image) {
         fs.writeFileSync(path.join(self.outputPath, image.name), image.contents);
       });
       resolve();
