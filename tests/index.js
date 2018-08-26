@@ -8,6 +8,8 @@ import Favicon from '../';
 import path from 'path';
 import fs from 'fs';
 
+import Mocks from './fixtures/mocks';
+
 const { expect } = chai;
 
 chai.config.truncateThreshold = 1000;
@@ -47,13 +49,13 @@ describe('Favicon', function() {
     expect(fs.existsSync(path.join(builder.builder.outputPath, 'favicon-16x16.png'))).to.be.false;
   });
 
-  it('calls onSuccess callback', async function() {
+  it('calls onSuccess callback wit proper data', async function() {
     this.timeout(60000);
 
     let inputPath = path.join('tests', 'fixtures');
     let onSuccess = (html, rawObjects) => {
-      expect(html).to.be.ok;
-      expect(rawObjects).to.be.ok;
+      expect(html).to.be.deep.equal(Mocks.htmlArrayMock);
+      expect(rawObjects).to.be.deep.equal(Mocks.rawObjectsMock);
     }
 
     let node = new Favicon(inputPath, { onSuccess });
