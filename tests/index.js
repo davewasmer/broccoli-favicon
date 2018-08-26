@@ -51,7 +51,11 @@ describe('Favicon', function() {
     this.timeout(60000);
 
     let inputPath = path.join('tests', 'fixtures');
-    let onSuccess = (response) => { expect(response).to.be.ok }
+    let onSuccess = (html, rawObjects) => {
+      expect(html).to.be.ok;
+      expect(rawObjects).to.be.ok;
+    }
+
     let node = new Favicon(inputPath, { onSuccess });
     let builder = await createBuilder(node);
 

@@ -1,11 +1,13 @@
 import Plugin from 'broccoli-caching-writer';
 import FaviconsJs from 'favicons';
 
-import deepMerge from 'lodash.merge';
-import path from 'path';
-import fs from 'fs';
-
 import config from './config';
+
+import fs from 'fs';
+import path from 'path';
+import deepMerge from 'lodash.merge';
+import { parse as parseHtml } from 'himalaya';
+
 
 export default class Favicon extends Plugin {
   constructor(node, options = {}) {
@@ -18,17 +20,22 @@ export default class Favicon extends Plugin {
   }
 
   build() {
-    let { iconPath, onSuccess, faviconsConfig } = this.config;
+    let { iconPath, faviconsConfig } = this.config;
     iconPath = path.join(this.inputPaths[0], iconPath);
 
     if (!fs.existsSync(iconPath)) {
       return Promise.resolve()
     }
 
-    return this._generateFavicons(iconPath, faviconsConfig).then((response) => {
-      this._saveFiles(response.images.concat(response.files))
-      return onSuccess(response);
-    });
+    return this._generateFavicons(iconPath, faviconsConfig).then(this._onSuccess.bind(this));
+  }
+
+  _onSuccess(response) {
+    let parsedHtml = parseHtml(response.html.join(''));
+
+    this._saveFiles(response.images.concat(response.files))
+
+    return this.config.onSuccess(response.html, parsedHtml);
   }
 
   _generateFavicons(imagePath, options = {}) {
