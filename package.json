@@ -1,6 +1,6 @@
 {
   "name": "broccoli-favicon",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "description": "Generate favicons and HTML using Favicons package",
   "main": "dist/index.js",
   "scripts": {
