@@ -14,7 +14,7 @@ export default class Favicon extends Plugin {
       annotation: options.annotation
     });
 
-    this.config = deepMerge({}, config, { faviconsConfig: FaviconsJs.config.defaults }, options);
+    this.config = deepMerge({}, config, options);
   }
 
   build() {
