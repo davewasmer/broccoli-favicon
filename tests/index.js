@@ -49,7 +49,7 @@ describe('Favicon', function() {
     expect(fs.existsSync(path.join(builder.builder.outputPath, 'favicon-16x16.png'))).to.be.false;
   });
 
-  it('calls onSuccess callback wit proper data', async function() {
+  it('calls onSuccess callback with proper data', async function() {
     this.timeout(60000);
 
     let inputPath = path.join('tests', 'fixtures');
