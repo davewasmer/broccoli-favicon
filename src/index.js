@@ -7,7 +7,9 @@ import fs from 'fs';
 import path from 'path';
 import deepMerge from 'lodash.merge';
 import { parse as parseHtml } from 'himalaya';
+import { default as _logger } from 'heimdalljs-logger';
 
+const logger = _logger('broccoli-favicon');
 
 export default class Favicon extends Plugin {
   constructor(node, options = {}) {
@@ -24,6 +26,7 @@ export default class Favicon extends Plugin {
     iconPath = path.join(this.inputPaths[0], iconPath);
 
     if (!fs.existsSync(iconPath)) {
+      logger.warn(`Favicon file has been not detected in specified path: "${iconPath}"`);
       return Promise.resolve()
     }
 
