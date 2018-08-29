@@ -1,29 +1,55 @@
 {
   "name": "broccoli-favicon",
   "version": "1.0.0",
-  "description": "Generate favicons and HTML using favicons module",
-  "main": "index.js",
+  "description": "Generate favicons and HTML using Favicons package",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha"
+    "build": "rm -rf dist && broccoli build dist",
+    "build:serve": "broccoli serve",
+    "test": "npm run build && mocha dist/tests --reporter tap",
+    "test:lint": "npm run build && mocha dist/tests/lint.js",
+    "test:debug": "npm run build && mocha debug dist/tests",
+    "test:watch": "testem",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/davewasmer/broccoli-favicon"
   },
+  "keywords": [
+    "broccoli",
+    "plugin",
+    "favicons"
+  ],
   "author": "Dave Wasmer",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/davewasmer/broccoli-favicon/issues"
   },
   "homepage": "https://github.com/davewasmer/broccoli-favicon",
+  "files": [
+    "dist/",
+    "!dist/tests"
+  ],
   "dependencies": {
-    "bluebird": "^3.3.5",
-    "broccoli-caching-writer": "^2.2.1",
-    "favicons": "^4.7.1",
-    "lodash": "^4.10.0"
+    "broccoli-caching-writer": "3.0.3",
+    "favicons": "~5.1.1",
+    "heimdalljs-logger": "~0.1.10",
+    "lodash.merge": "~4.6.1"
   },
   "devDependencies": {
-    "mocha": "^2.2.5",
-    "broccoli": "^1.0.0-beta.6"
+    "babel-preset-env": "1.7.0",
+    "broccoli": "1.1.4",
+    "broccoli-babel-transpiler": "6.5.0",
+    "broccoli-cli": "1.0.0",
+    "broccoli-lint-eslint": "3.3.2",
+    "broccoli-merge-trees": "3.0.1",
+    "broccoli-stew": "2.0.0",
+    "broccoli-test-helper": "1.5.0",
+    "chai": "4.1.2",
+    "mocha": "5.2.0",
+    "mocha-eslint": "4.1.0",
+    "regenerator-runtime": "0.12.1",
+    "testem": "2.9.3"
   }
 }
