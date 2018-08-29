@@ -1,6 +1,6 @@
 {
   "name": "broccoli-favicon",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "description": "Generate favicons and HTML using Favicons package",
   "main": "dist/index.js",
   "scripts": {
@@ -34,7 +34,7 @@
   "dependencies": {
     "broccoli-caching-writer": "3.0.3",
     "favicons": "~5.1.1",
-    "heimdalljs-logger": "^0.1.10",
+    "heimdalljs-logger": "~0.1.10",
     "himalaya": "1.1.0",
     "lodash.merge": "~4.6.1"
   },
