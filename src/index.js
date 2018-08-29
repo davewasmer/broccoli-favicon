@@ -9,9 +9,6 @@ import deepMerge from 'lodash.merge';
 import { parse as parseHtml } from 'himalaya';
 import { default as _logger } from 'heimdalljs-logger';
 
-import config from './config';
-import { default as _logger } from 'heimdalljs-logger';
-
 const logger = _logger('broccoli-favicon');
 
 export default class Favicon extends Plugin {
