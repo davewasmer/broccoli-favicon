@@ -10,40 +10,20 @@ Takes a single `favicon.png` and outputs various sizes and file formats for favi
 Default configuration values are show below:
 
 ```js
-  var outputNode = new Favicons(nodeThatContainsSourceImage, {
-    htmlCallback: function(arrayOfHtmlStrings) {
+  import Favicon from 'broccoli-favicon';
+
+  const outputNode = new Favicon(nodeWithFaviconImage, {
+    iconPath: 'favicon.png', // The path to the source image in 'nodeWithFaviconImage'
+
+    onSuccess(htmlArray, rawObject) {
       // this method is called once the generator finishes;
       // the first parameter is an array of strings containing
       // the appropriate HTML to use the generated icons
+      // and the second argument is a raw object containing serialized html objects
     },
-    imagePath: 'favicon.png', // The path to the source image in nodeThatContainsSourceImage
-    // The config object is passed directly to the underlying `favicons` module
-    // See https://github.com/haydenbleasel/favicons for details
-    config: {
-      appName: null,                  // Your application's name. `string`
-      appDescription: null,           // Your application's description. `string`
-      developerName: null,            // Your (or your developer's) name. `string`
-      developerURL: null,             // Your (or your developer's) URL. `string`
-      background: '#fff',             // Background colour for flattened icons. `string`
-      path: '/',                      // Path for overriding default icons path. `string`
-      url: '/',                       // Absolute URL for OpenGraph image. `string`
-      display: 'standalone',          // Android display: "browser" or "standalone". `string`
-      orientation: 'portrait',        // Android orientation: "portrait" or "landscape". `string`
-      version: '1.0',                 // Your application's version number. `number`
-      logging: false,                 // Print logs to console? `boolean`
-      online: false,                  // Use RealFaviconGenerator to create favicons? `boolean`
-      icons: {
-        android: true,              // Create Android homescreen icon. `boolean`
-        appleIcon: true,            // Create Apple touch icons. `boolean`
-        appleStartup: true,         // Create Apple startup images. `boolean`
-        coast: true,                // Create Opera Coast icon. `boolean`
-        favicons: true,             // Create regular favicons. `boolean`
-        firefox: true,              // Create Firefox OS icons. `boolean`
-        opengraph: true,            // Create Facebook OpenGraph image. `boolean`
-        twitter: true,              // Create Twitter Summary Card image. `boolean`
-        windows: true,              // Create Windows 8 tile icons. `boolean`
-        yandex: true                // Create Yandex browser icon. `boolean`
-      }
-    }
+
+    // The favicons config object is passed directly to the underlying `Favicons` module
+    // See https://github.com/haydenbleasel/favicons for details and defaults
+    faviconsConfig: {}
   });
 ```

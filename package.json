@@ -51,6 +51,6 @@
     "mocha": "5.2.0",
     "mocha-eslint": "4.1.0",
     "regenerator-runtime": "0.12.1",
-    "testem": "2.9.3"
+    "testem": "2.10.0"
   }
 }
