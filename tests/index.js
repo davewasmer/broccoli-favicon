@@ -2,6 +2,7 @@ import 'regenerator-runtime/runtime'; // only for tests, because async/await nee
 
 import chai from 'chai';
 import { createBuilder, createTempDir } from 'broccoli-test-helper';
+import deepEqualInAnyOrder from 'deep-equal-in-any-order';
 
 import Favicon from '../';
 
@@ -13,6 +14,7 @@ import Mocks from './fixtures/mocks';
 const { expect } = chai;
 
 chai.config.truncateThreshold = 1000;
+chai.use(deepEqualInAnyOrder);
 
 describe('Favicon', function() {
   let input;
@@ -54,8 +56,8 @@ describe('Favicon', function() {
 
     let inputPath = path.join('tests', 'fixtures');
     let onSuccess = (html, rawObjects) => {
-      expect(html).to.be.deep.equal(Mocks.htmlArrayMock);
-      expect(rawObjects).to.be.deep.equal(Mocks.rawObjectsMock);
+      expect(html).to.be.deep.equalInAnyOrder(Mocks.htmlArrayMock);
+      expect(rawObjects).to.be.deep.equalInAnyOrder(Mocks.rawObjectsMock);
     }
 
     let node = new Favicon(inputPath, { onSuccess });
