@@ -33,7 +33,7 @@
   ],
   "dependencies": {
     "broccoli-caching-writer": "3.0.3",
-    "favicons": "~5.1.1",
+    "favicons": "~5.2.0",
     "heimdalljs-logger": "~0.1.10",
     "himalaya": "1.1.0",
     "lodash.merge": "~4.6.1"
