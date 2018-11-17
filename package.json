@@ -33,7 +33,7 @@
   ],
   "dependencies": {
     "broccoli-caching-writer": "3.0.3",
-    "favicons": "~5.1.1",
+    "favicons": "~5.2.0",
     "heimdalljs-logger": "~0.1.10",
     "himalaya": "1.1.0",
     "lodash.merge": "~4.6.1"
@@ -47,10 +47,10 @@
     "broccoli-merge-trees": "3.0.1",
     "broccoli-stew": "2.0.0",
     "broccoli-test-helper": "1.5.0",
-    "chai": "4.1.2",
+    "chai": "4.2.0",
     "mocha": "5.2.0",
     "mocha-eslint": "4.1.0",
     "regenerator-runtime": "0.12.1",
-    "testem": "2.10.0"
+    "testem": "2.13.0"
   }
 }
