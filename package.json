@@ -33,24 +33,23 @@
   ],
   "dependencies": {
     "broccoli-caching-writer": "3.0.3",
-    "favicons": "~5.1.1",
+    "favicons": "~5.2.0",
     "heimdalljs-logger": "~0.1.10",
     "himalaya": "1.1.0",
     "lodash.merge": "~4.6.1"
   },
   "devDependencies": {
-    "babel-preset-env": "1.7.0",
-    "broccoli": "1.1.4",
-    "broccoli-babel-transpiler": "6.5.0",
+    "@babel/preset-env": "7.0.0",
+    "broccoli": "2.0.1",
+    "broccoli-babel-transpiler": "7.1.0",
     "broccoli-cli": "1.0.0",
-    "broccoli-lint-eslint": "3.3.2",
+    "broccoli-lint-eslint": "5.0.0",
     "broccoli-merge-trees": "3.0.1",
-    "broccoli-stew": "2.0.0",
-    "broccoli-test-helper": "1.5.0",
-    "chai": "4.1.2",
+    "broccoli-stew": "2.0.1",
+    "broccoli-test-helper": "2.0.0",
+    "chai": "4.2.0",
     "mocha": "5.2.0",
     "mocha-eslint": "4.1.0",
-    "regenerator-runtime": "0.12.1",
-    "testem": "2.10.0"
+    "testem": "2.14.0"
   }
 }
