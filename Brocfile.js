@@ -1,19 +1,13 @@
-const babel = require('broccoli-babel-transpiler');
 const merge = require('broccoli-merge-trees');
-const lint = require('broccoli-lint-eslint');
 const mv = require('broccoli-stew').mv;
+const babelTranspiler = require('broccoli-babel-transpiler');
+const ESLint = require('broccoli-lint-eslint');
 
 const babelOptions = {
-  "presets": [
-    ["env", {
-      "targets": {
-        "node": 4
-      }
-    }]
-  ]
-}
+  "presets": ["@babel/preset-env"]
+};
 
 module.exports = merge([
-  mv(babel(lint('tests'), babelOptions), 'tests'),
-  babel(lint('src'), babelOptions),
+  mv(babelTranspiler(ESLint.create('tests'), babelOptions), 'tests'),
+  babelTranspiler(ESLint.create('src'), babelOptions)
 ]);

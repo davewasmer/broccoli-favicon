@@ -1,4 +1,4 @@
-import 'regenerator-runtime/runtime'; // only for tests, because async/await needs it
+import "@babel/polyfill";
 
 import chai from 'chai';
 import { createBuilder, createTempDir } from 'broccoli-test-helper';
