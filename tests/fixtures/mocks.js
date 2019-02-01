@@ -278,11 +278,49 @@ const rawObjectsMock = [
       },
       {
         key: 'sizes',
+        value: '167x167'
+      },
+      {
+        key: 'href',
+        value: '/apple-touch-icon-167x167.png'
+      }
+    ],
+    children: []
+  },
+  {
+    type: 'element',
+    tagName: 'link',
+    attributes: [
+      {
+        key: 'rel',
+        value: 'apple-touch-icon'
+      },
+      {
+        key: 'sizes',
         value: '180x180'
       },
       {
         key: 'href',
         value: '/apple-touch-icon-180x180.png'
+      }
+    ],
+    children: []
+  },
+  {
+    type: 'element',
+    tagName: 'link',
+    attributes: [
+      {
+        key: 'rel',
+        value: 'apple-touch-icon'
+      },
+      {
+        key: 'sizes',
+        value: '1024x1024'
+      },
+      {
+        key: 'href',
+        value: '/apple-touch-icon-1024x1024.png'
       }
     ],
     children: []
@@ -619,7 +657,9 @@ let htmlArrayMock = [
   '<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">',
   '<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">',
   '<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">',
+  '<link rel="apple-touch-icon" sizes="167x167" href="/apple-touch-icon-167x167.png">',
   '<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">',
+  '<link rel="apple-touch-icon" sizes="1024x1024" href="/apple-touch-icon-1024x1024.png">',
   '<meta name="apple-mobile-web-app-capable" content="yes">',
   '<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">',
   '<meta name="apple-mobile-web-app-title">',
