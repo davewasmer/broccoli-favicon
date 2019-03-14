@@ -1,5 +1,12 @@
 # Change Log
 
+## [2.1.0](https://github.com/davewasmer/broccoli-favicon/tree/2.1.0) (2019-03-14)
+[Full Changelog](https://github.com/davewasmer/broccoli-favicon/compare/v2.0.0...2.1.0)
+
+**Merged pull requests:**
+
+- Update `favicons` dependency to v5.3.0 [\#46](https://github.com/davewasmer/broccoli-favicon/pull/46) ([Turbo87](https://github.com/Turbo87))
+
 ## [v2.0.0](https://github.com/davewasmer/broccoli-favicon/tree/v2.0.0) (2018-11-17)
 [Full Changelog](https://github.com/davewasmer/broccoli-favicon/compare/v1.0.0...v2.0.0)
 
