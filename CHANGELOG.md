@@ -1,7 +1,14 @@
 # Change Log
 
-## [2.1.0](https://github.com/davewasmer/broccoli-favicon/tree/2.1.0) (2019-03-14)
-[Full Changelog](https://github.com/davewasmer/broccoli-favicon/compare/v2.0.0...2.1.0)
+## [2.1.1](https://github.com/davewasmer/broccoli-favicon/tree/2.1.1) (2019-06-05)
+[Full Changelog](https://github.com/davewasmer/broccoli-favicon/compare/v2.1.0...2.1.1)
+
+**Merged pull requests:**
+
+- Updates packages [\#48](https://github.com/davewasmer/broccoli-favicon/pull/48) ([Exelord](https://github.com/Exelord))
+
+## [v2.1.0](https://github.com/davewasmer/broccoli-favicon/tree/v2.1.0) (2019-03-14)
+[Full Changelog](https://github.com/davewasmer/broccoli-favicon/compare/v2.0.0...v2.1.0)
 
 **Merged pull requests:**
 
