@@ -26,7 +26,7 @@ describe('Favicon', function() {
   });
 
   it('creates favicons', async function() {
-    this.timeout(60000);
+    this.timeout(120000);
 
     let inputPath = path.join('tests', 'fixtures');
     let node = new Favicon(inputPath);
@@ -38,7 +38,7 @@ describe('Favicon', function() {
   });
 
   it('does do nothing if there is no favicon', async function() {
-    this.timeout(60000);
+    this.timeout(120000);
 
     let inputPath = path.join('tests', 'fixtures');
     let node = new Favicon(inputPath, { iconPath: 'none.png' });
@@ -50,7 +50,7 @@ describe('Favicon', function() {
   });
 
   it('calls onSuccess callback with proper data', async function() {
-    this.timeout(60000);
+    this.timeout(120000);
 
     let inputPath = path.join('tests', 'fixtures');
     let onSuccess = (html, rawObjects) => {
