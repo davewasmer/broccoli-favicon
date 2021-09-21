@@ -4,11 +4,11 @@
   "description": "Generate favicons and HTML using Favicons package",
   "main": "dist/index.js",
   "scripts": {
+    "dev": "broccoli serve",
     "build": "rm -rf dist && broccoli build dist",
-    "build:serve": "broccoli serve",
-    "test": "npm run build && mocha dist/tests --reporter tap",
-    "test:lint": "npm run build && mocha dist/tests/lint.js",
-    "test:debug": "npm run build && mocha debug dist/tests",
+    "test": "mocha dist/tests --reporter tap",
+    "test:lint": "mocha dist/tests/lint.js",
+    "test:debug": "mocha debug dist/tests",
     "test:watch": "testem",
     "prepublish": "npm run build"
   },
@@ -33,7 +33,7 @@
   ],
   "dependencies": {
     "broccoli-caching-writer": "3.0.3",
-    "favicons": "~5.3.0",
+    "favicons": "^6.2.2",
     "heimdalljs-logger": "~0.1.10",
     "himalaya": "1.1.0",
     "lodash.merge": "~4.6.1"
