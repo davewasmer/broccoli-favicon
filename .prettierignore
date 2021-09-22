@@ -1,1 +1,4 @@
+dist
+tmp
+node_modules
 tests/fixtures
