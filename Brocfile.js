@@ -1,5 +1,5 @@
-const merge = require('broccoli-merge-trees');
-const mv = require('broccoli-stew').mv;
+const merge = require("broccoli-merge-trees");
+const mv = require("broccoli-stew").mv;
 const babelTranspiler = require("broccoli-babel-transpiler");
 
 const babelOptions = {

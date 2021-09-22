@@ -1,68 +1,76 @@
 import "@babel/polyfill";
 
-import chai from 'chai';
-import { createBuilder, createTempDir } from 'broccoli-test-helper';
+import chai from "chai";
+import { createBuilder, createTempDir } from "broccoli-test-helper";
 
-import Favicon from '../';
+import Favicon from "../";
 
-import path from 'path';
-import fs from 'fs';
+import path from "path";
+import fs from "fs";
 
-import Mocks from './fixtures/mocks';
+import Mocks from "./fixtures/mocks";
 
 const { expect } = chai;
 
 chai.config.truncateThreshold = 1000;
 
-describe('Favicon', function() {
+describe("Favicon", function () {
   let input;
 
-  beforeEach(function() {
-    return createTempDir().then(tempDir => (input = tempDir));
+  beforeEach(function () {
+    return createTempDir().then((tempDir) => (input = tempDir));
   });
 
-  afterEach(function() {
+  afterEach(function () {
     return input.dispose();
   });
 
-  it('creates favicons', async function() {
+  it("creates favicons", async function () {
     this.timeout(120000);
 
-    let inputPath = path.join('tests', 'fixtures');
+    let inputPath = path.join("tests", "fixtures");
     let node = new Favicon(inputPath);
     let builder = await createBuilder(node);
 
     await builder.build();
 
-    expect(fs.existsSync(path.join(builder.builder.outputPath, 'favicon-16x16.png'))).to.be.true;
+    expect(
+      fs.existsSync(path.join(builder.builder.outputPath, "favicon-16x16.png"))
+    ).to.be.true;
   });
 
-  it('does do nothing if there is no favicon', async function() {
+  it("does do nothing if there is no favicon", async function () {
     this.timeout(120000);
 
-    let inputPath = path.join('tests', 'fixtures');
-    let node = new Favicon(inputPath, { iconPath: 'none.png' });
+    let inputPath = path.join("tests", "fixtures");
+    let node = new Favicon(inputPath, { iconPath: "none.png" });
     let builder = await createBuilder(node);
 
     await builder.build();
 
-    expect(fs.existsSync(path.join(builder.builder.outputPath, 'favicon-16x16.png'))).to.be.false;
+    expect(
+      fs.existsSync(path.join(builder.builder.outputPath, "favicon-16x16.png"))
+    ).to.be.false;
   });
 
-  it('calls onSuccess callback with proper data', async function() {
+  it("calls onSuccess callback with proper data", async function () {
     this.timeout(120000);
 
-    let inputPath = path.join('tests', 'fixtures');
+    let inputPath = path.join("tests", "fixtures");
     let onSuccess = (html, rawObjects) => {
       expect(html).to.be.deep.equal(Mocks.htmlArrayMock);
       expect(rawObjects).to.be.deep.equal(Mocks.rawObjectsMock);
-    }
+    };
 
     let node = new Favicon(inputPath, { onSuccess });
     let builder = await createBuilder(node);
 
     await builder.build();
 
-    expect(fs.statSync(path.join(builder.builder.outputPath, 'favicon-16x16.png')).isFile());
+    expect(
+      fs
+        .statSync(path.join(builder.builder.outputPath, "favicon-16x16.png"))
+        .isFile()
+    );
   });
 });
