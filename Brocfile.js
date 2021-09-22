@@ -3,7 +3,17 @@ const mv = require("broccoli-stew").mv;
 const babelTranspiler = require("broccoli-babel-transpiler");
 
 const babelOptions = {
-  presets: ["@babel/preset-env"],
+  presets: [
+    [
+      "@babel/preset-env",
+      {
+        bugfixes: true,
+        targets: {
+          node: 12,
+        },
+      },
+    ],
+  ],
 };
 
 module.exports = merge([
