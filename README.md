@@ -10,20 +10,20 @@ Takes a single `favicon.png` and outputs various sizes and file formats for favi
 Default configuration values are show below:
 
 ```js
-  import Favicon from 'broccoli-favicon';
+import Favicon from "broccoli-favicon";
 
-  const outputNode = new Favicon(nodeWithFaviconImage, {
-    iconPath: 'favicon.png', // The path to the source image in 'nodeWithFaviconImage'
+const outputNode = new Favicon(nodeWithFaviconImage, {
+  iconPath: "favicon.png", // The path to the source image in 'nodeWithFaviconImage'
 
-    onSuccess(htmlArray, rawObject) {
-      // this method is called once the generator finishes;
-      // the first parameter is an array of strings containing
-      // the appropriate HTML to use the generated icons
-      // and the second argument is a raw object containing serialized html objects
-    },
+  onSuccess(htmlArray, rawObject) {
+    // this method is called once the generator finishes;
+    // the first parameter is an array of strings containing
+    // the appropriate HTML to use the generated icons
+    // and the second argument is a raw object containing serialized html objects
+  },
 
-    // The favicons config object is passed directly to the underlying `Favicons` module
-    // See https://github.com/haydenbleasel/favicons for details and defaults
-    faviconsConfig: {}
-  });
+  // The favicons config object is passed directly to the underlying `Favicons` module
+  // See https://github.com/haydenbleasel/favicons for details and defaults
+  faviconsConfig: {},
+});
 ```
