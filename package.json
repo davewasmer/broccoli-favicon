@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "broccoli serve",
     "build": "rm -rf dist && broccoli build dist",
-    "test": "mocha dist/tests --reporter tap",
-    "test:lint": "mocha dist/tests/lint.js",
+    "lint:js": "eslint .",
+    "lint:format": "prettier . --check --loglevel=warn",
+    "lint:format:fix": "prettier . --write --loglevel=warn",
+    "test": "npm run build && mocha dist/tests --reporter tap",
     "test:debug": "mocha debug dist/tests",
     "test:watch": "testem",
     "prepublish": "npm run build"
@@ -32,24 +34,24 @@
     "!dist/tests"
   ],
   "dependencies": {
-    "broccoli-caching-writer": "3.0.3",
+    "broccoli-caching-writer": "^3.0.3",
     "favicons": "^6.2.2",
-    "heimdalljs-logger": "~0.1.10",
-    "himalaya": "1.1.0",
-    "lodash.merge": "~4.6.1"
+    "heimdalljs-logger": "^0.1.10",
+    "himalaya": "^1.1.0",
+    "lodash.merge": "^4.6.2"
   },
   "devDependencies": {
-    "@babel/preset-env": "7.4.5",
-    "broccoli": "3.0.0",
-    "broccoli-babel-transpiler": "7.2.0",
-    "broccoli-cli": "1.0.0",
-    "broccoli-lint-eslint": "5.0.0",
-    "broccoli-merge-trees": "3.0.2",
-    "broccoli-stew": "2.0.1",
-    "broccoli-test-helper": "2.0.0",
-    "chai": "4.2.0",
-    "mocha": "6.0.2",
-    "mocha-eslint": "5.0.0",
-    "testem": "2.14.0"
+    "@babel/preset-env": "^7.15.6",
+    "broccoli": "^3.5.2",
+    "broccoli-babel-transpiler": "^7.8.0",
+    "broccoli-cli": "^1.0.0",
+    "broccoli-merge-trees": "^4.2.0",
+    "broccoli-stew": "^3.0.0",
+    "broccoli-test-helper": "^2.0.0",
+    "chai": "^4.3.4",
+    "eslint": "^7.32.0",
+    "mocha": "^9.1.1",
+    "prettier": "^2.4.1",
+    "testem": "^3.5.0"
   }
 }
