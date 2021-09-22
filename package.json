@@ -12,7 +12,8 @@
     "test": "npm run build && mocha dist/tests --reporter tap",
     "test:debug": "mocha debug dist/tests",
     "test:watch": "testem",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "release": "release-it"
   },
   "repository": {
     "type": "git",
