@@ -41,6 +41,7 @@
     "lodash.merge": "^4.6.2"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.15.7",
     "@babel/preset-env": "^7.15.6",
     "broccoli": "^3.5.2",
     "broccoli-babel-transpiler": "^7.8.0",
@@ -50,8 +51,14 @@
     "broccoli-test-helper": "^2.0.0",
     "chai": "^4.3.4",
     "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-node": "^11.1.0",
     "mocha": "^9.1.1",
     "prettier": "^2.4.1",
     "testem": "^3.5.0"
+  },
+  "engines": {
+    "node": "^12.0.0 || ^14.0.0 || >=16.0.0",
+    "npm": ">=7.0.0"
   }
 }

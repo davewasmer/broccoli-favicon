@@ -1,12 +1,25 @@
 {
   "root": true,
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
-    "ecmaVersion": 8,
-    "sourceType": "module"
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "requireConfigFile": false
   },
-  "extends": "eslint:recommended",
+  "extends": ["eslint:recommended", "plugin:node/recommended", "prettier"],
   "env": {
     "node": true,
     "es6": true
-  }
+  },
+  "rules": {
+    "node/no-unsupported-features/es-syntax": 0
+  },
+  "overrides": [
+    {
+      "files": ["Brocfile.js", "testem.js"],
+      "parserOptions": {
+        "sourceType": "script"
+      }
+    }
+  ]
 }
