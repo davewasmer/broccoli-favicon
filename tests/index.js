@@ -41,13 +41,15 @@ describe("Favicon", function () {
     this.timeout(120000);
 
     let inputPath = path.join("tests", "fixtures");
-    let node = new Favicon(inputPath, { faviconsConfig: { path: "favicons" }});
+    let node = new Favicon(inputPath, { faviconsConfig: { path: "favicons" } });
     let builder = await createBuilder(node);
 
     await builder.build();
 
     expect(
-      fs.existsSync(path.join(builder.builder.outputPath, "favicons", "favicon-16x16.png"))
+      fs.existsSync(
+        path.join(builder.builder.outputPath, "favicons", "favicon-16x16.png")
+      )
     ).to.be.true;
   });
 
