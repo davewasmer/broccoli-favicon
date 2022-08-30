@@ -37,6 +37,20 @@ describe("Favicon", function () {
     ).to.be.true;
   });
 
+  it("creates favicons inside folder", async function () {
+    this.timeout(120000);
+
+    let inputPath = path.join("tests", "fixtures");
+    let node = new Favicon(inputPath, { faviconsConfig: { path: "favicons" }});
+    let builder = await createBuilder(node);
+
+    await builder.build();
+
+    expect(
+      fs.existsSync(path.join(builder.builder.outputPath, "favicons", "favicon-16x16.png"))
+    ).to.be.true;
+  });
+
   it("does do nothing if there is no favicon", async function () {
     this.timeout(120000);
 

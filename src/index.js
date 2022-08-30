@@ -58,8 +58,16 @@ export default class Favicon extends Plugin {
   }
 
   _saveFiles(files) {
+    let { faviconsConfig } = this.config;
+    let faviconsPath = faviconsConfig ? faviconsConfig.path || '' : '';
+    let outputPath = path.join(this.outputPath, faviconsPath);
+
+    if (!fs.existsSync(outputPath)) {
+      fs.mkdirSync(outputPath);
+    }
+
     files.forEach((file) =>
-      fs.writeFileSync(path.join(this.outputPath, file.name), file.contents)
+      fs.writeFileSync(path.join(outputPath, file.name), file.contents)
     );
   }
 }
