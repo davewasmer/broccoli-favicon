@@ -41,7 +41,7 @@ describe("Favicon", function () {
     this.timeout(120000);
 
     let inputPath = path.join("tests", "fixtures");
-    let node = new Favicon(inputPath, { faviconsConfig: { path: "favicons" } });
+    let node = new Favicon(inputPath, { outputPath: "favicons" });
     let builder = await createBuilder(node);
 
     await builder.build();
@@ -51,6 +51,30 @@ describe("Favicon", function () {
         path.join(builder.builder.outputPath, "favicons", "favicon-16x16.png")
       )
     ).to.be.true;
+
+    expect(fs.existsSync(path.join(builder.builder.outputPath, "favicon.ico")))
+      .to.be.true;
+  });
+
+  it("does not place favicon.ico in root if placeIcoAtRoot is false", async function () {
+    this.timeout(120000);
+
+    let inputPath = path.join("tests", "fixtures");
+    let node = new Favicon(inputPath, {
+      outputPath: "favicons",
+      placeIcoAtRoot: false,
+    });
+    let builder = await createBuilder(node);
+
+    await builder.build();
+
+    expect(
+      fs.existsSync(
+        path.join(builder.builder.outputPath, "favicons", "favicon-16x16.png")
+      )
+    ).to.be.true;
+    expect(fs.existsSync(path.join(builder.builder.outputPath, "favicon.ico")))
+      .to.be.false;
   });
 
   it("does do nothing if there is no favicon", async function () {
