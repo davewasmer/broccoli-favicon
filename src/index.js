@@ -58,8 +58,23 @@ export default class Favicon extends Plugin {
   }
 
   _saveFiles(files) {
-    files.forEach((file) =>
-      fs.writeFileSync(path.join(this.outputPath, file.name), file.contents)
-    );
+    let { outputPath, placeIcoAtRoot } = this.config;
+
+    let configPath = outputPath || "";
+    outputPath = path.join(this.outputPath, configPath);
+
+    placeIcoAtRoot = placeIcoAtRoot === undefined ? true : placeIcoAtRoot;
+
+    if (!fs.existsSync(outputPath)) {
+      fs.mkdirSync(outputPath);
+    }
+
+    files.forEach((file) => {
+      fs.writeFileSync(path.join(outputPath, file.name), file.contents);
+
+      if (placeIcoAtRoot && outputPath !== "" && file.name === "favicon.ico") {
+        fs.writeFileSync(path.join(this.outputPath, file.name), file.contents);
+      }
+    });
   }
 }

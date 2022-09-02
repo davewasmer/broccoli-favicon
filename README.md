@@ -13,7 +13,16 @@ Default configuration values are show below:
 import Favicon from "broccoli-favicon";
 
 const outputNode = new Favicon(nodeWithFaviconImage, {
-  iconPath: "favicon.png", // The path to the source image in 'nodeWithFaviconImage'
+  // The path to the source image in 'nodeWithFaviconImage'
+  iconPath: "favicon.png",
+
+  // the sub path where the icon files will be written to. Defaults to writing to the root path.
+  outputPath: "favicons",
+
+  // this option enables/disables writing a "favicon.ico" copy at the root path
+  // this is useful if you use the `outputPath` option but still want to keep
+  // a favicon.ico copy at the root. Read more about why this is important: https://stackoverflow.com/a/21359390
+  placeIcoAtRoot: false,
 
   onSuccess(htmlArray, rawObject) {
     // this method is called once the generator finishes;
