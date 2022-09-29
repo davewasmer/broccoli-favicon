@@ -47,12 +47,10 @@ export default class Favicon extends Plugin {
 
   _generateFavicons(imagePath, options = {}) {
     return new Promise((resolve, reject) => {
-      return FaviconsJs(imagePath, options, (error, response) => {
-        if (error) {
-          reject(new Error(`${error.name}: ${error.message}`));
-        } else {
-          resolve(response);
-        }
+      return FaviconsJs(imagePath, options).then((response) => {
+        resolve(response);
+      }, (error) => {
+        reject(new Error(`${error.name}: ${error.message}`));
       });
     });
   }
